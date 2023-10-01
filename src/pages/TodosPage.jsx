@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddTodoForm } from "../components/AddTodoForm";
+import { getTodos } from "../api";
 
 export default function TodosPage() {
   const [todos, setTodos] = useState([
@@ -7,6 +8,15 @@ export default function TodosPage() {
     { id: 2, text: "Молоко" },
     { id: 3, text: "Сок" },
   ]);
+
+  useEffect(() => {
+
+    getTodos().then((todos) => {
+      // console.log(todos);
+      setTodos(todos.todos);
+    });
+    
+  }, []);
 
   return (
     <div className="page">
