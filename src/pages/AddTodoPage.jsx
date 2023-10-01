@@ -1,6 +1,7 @@
+import { AddTodoForm } from "../components/AddTodoForm";
 import { Link } from "react-router-dom";
 
-export default function TodosPage({todos}) {
+export default function AddTodoPage({ setTodos }) {
   return (
     <div className="page">
       <h3>Навигация</h3>
@@ -12,13 +13,9 @@ export default function TodosPage({todos}) {
       <br />
       <br />
 
-      <h1>Список задач</h1>
+      <h1>Страница добавления задачи</h1>
 
-      <ul>
-        {todos.map((todo) => {
-          return <li key={todo.id}>{todo.text}</li>;
-        })}
-      </ul>
+      <AddTodoForm setTodos={setTodos} />
     </div>
   );
 }

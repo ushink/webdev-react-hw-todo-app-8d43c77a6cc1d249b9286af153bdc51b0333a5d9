@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function TodosPage({todos}) {
+export default function AboutPage({ setTodos }) {
   return (
     <div className="page">
       <h3>Навигация</h3>
@@ -12,13 +12,8 @@ export default function TodosPage({todos}) {
       <br />
       <br />
 
-      <h1>Список задач</h1>
-
-      <ul>
-        {todos.map((todo) => {
-          return <li key={todo.id}>{todo.text}</li>;
-        })}
-      </ul>
+      <h1>O проекте</h1>
+      <p>Учебный проект</p>
     </div>
   );
 }
