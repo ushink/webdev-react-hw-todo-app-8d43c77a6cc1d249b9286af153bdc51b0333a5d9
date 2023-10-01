@@ -16,7 +16,16 @@ function App() {
     });
   }, []);
 
-  return <AppRoutes todos={todos} setTodos={setTodos}></AppRoutes>;
+  const [currentTodo, setCurrentTodo] = useState(null);
+
+  return (
+    <AppRoutes
+      currentTodo={currentTodo}
+      setCurrentTodo={setCurrentTodo}
+      todos={todos}
+      setTodos={setTodos}
+    ></AppRoutes>
+  );
 }
 
 export default App;

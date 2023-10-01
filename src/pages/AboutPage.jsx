@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function AboutPage({ setTodos }) {
+export default function AboutPage({ currentTodo }) {
   return (
     <div className="page">
+      {currentTodo ? (
+        <div className="current-task">Teкущая задача:{currentTodo.text}</div>
+      ) : null}
       <h3>Навигация</h3>
       <Link to="/">Задачи</Link>
       <br />

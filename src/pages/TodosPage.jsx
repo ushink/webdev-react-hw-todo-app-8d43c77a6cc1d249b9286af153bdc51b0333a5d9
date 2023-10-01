@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function TodosPage({todos}) {
+export default function TodosPage({ currentTodo, setCurrentTodo, todos }) {
   return (
     <div className="page">
+      {currentTodo ? (
+        <div className="current-task">Teкущая задача:{currentTodo.text}</div>
+      ) : null}
+
       <h3>Навигация</h3>
       <Link to="/">Задачи</Link>
       <br />
@@ -16,7 +20,15 @@ export default function TodosPage({todos}) {
 
       <ul>
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo.text}</li>;
+          return (
+            <li
+              onClick={() => setCurrentTodo(todo)}
+              className="todo-item"
+              key={todo.id}
+            >
+              {todo.text}
+            </li>
+          );
         })}
       </ul>
     </div>

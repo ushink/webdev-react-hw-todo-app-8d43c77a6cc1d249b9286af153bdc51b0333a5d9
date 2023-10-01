@@ -1,9 +1,12 @@
 import { AddTodoForm } from "../components/AddTodoForm";
 import { Link } from "react-router-dom";
 
-export default function AddTodoPage({ setTodos }) {
+export default function AddTodoPage({ currentTodo, setTodos }) {
   return (
     <div className="page">
+      {currentTodo ? (
+        <div className="current-task">Teкущая задача:{currentTodo.text}</div>
+      ) : null}
       <h3>Навигация</h3>
       <Link to="/">Задачи</Link>
       <br />
