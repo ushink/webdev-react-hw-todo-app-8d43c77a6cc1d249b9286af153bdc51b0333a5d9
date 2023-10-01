@@ -15,7 +15,7 @@ export default function TodosPage() {
       // console.log(todos);
       setTodos(todos.todos);
     });
-    
+
   }, []);
 
   return (

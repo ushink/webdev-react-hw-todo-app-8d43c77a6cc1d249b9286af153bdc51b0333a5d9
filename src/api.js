@@ -9,3 +9,17 @@ export async function getTodos() {
   const data = await response.json();
   return data;
 }
+
+export async function postTodo(text) {
+  const response = await fetch("https://wedev-api.sky.pro/api/v2/todos", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+    body: JSON.stringify({
+      text,
+    }),
+  });
+  const data = await response.json();
+  return data;
+}
