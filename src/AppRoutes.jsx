@@ -3,7 +3,7 @@ import TodosPage from "./pages/TodosPage";
 import AboutPage from "./pages/AboutPage";
 import AddTodoPage from "./pages/AddTodoPage";
 
-function AppRoutes({ currentTodo, setCurrentTodo, todos, setTodos }) {
+function AppRoutes({ setCurrentTodo, todos, setTodos }) {
   return (
     <Routes>
       <Route
@@ -12,29 +12,14 @@ function AppRoutes({ currentTodo, setCurrentTodo, todos, setTodos }) {
           <TodosPage
             todos={todos}
             setTodos={setTodos}
-            currentTodo={currentTodo}
             setCurrentTodo={setCurrentTodo}
           ></TodosPage>
         }
       ></Route>
-      <Route
-        path="/about"
-        element={
-          <AboutPage
-            currentTodo={currentTodo}
-            setCurrentTodo={setCurrentTodo}
-          ></AboutPage>
-        }
-      ></Route>
+      <Route path="/about" element={<AboutPage></AboutPage>}></Route>
       <Route
         path="/add"
-        element={
-          <AddTodoPage
-            setTodos={setTodos}
-            currentTodo={currentTodo}
-            setCurrentTodo={setCurrentTodo}
-          ></AddTodoPage>
-        }
+        element={<AddTodoPage setTodos={setTodos}></AddTodoPage>}
       ></Route>
     </Routes>
   );
