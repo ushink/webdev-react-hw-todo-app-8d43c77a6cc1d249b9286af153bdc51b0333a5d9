@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { postTodo } from "../api";
 
-export function AddTodoForm({ setTodos, todos }) {
+export function AddTodoForm({ setTodos }) {
   const [newTodoText, setNewTodoText] = useState("");
+  const [isNewTodoLoading, setISNewTodoLoading] = useState(false);
 
   const handleAddTodoClick = async () => {
     if (!newTodoText) {
       return;
     }
+    setISNewTodoLoading(true);
 
     const newTodos = await postTodo(newTodoText);
+
+    setISNewTodoLoading(false);
 
     setTodos(newTodos.todos);
 
@@ -24,7 +28,9 @@ export function AddTodoForm({ setTodos, todos }) {
           setNewTodoText(event.target.value);
         }}
       />
-      <button onClick={handleAddTodoClick}>Добавить задачу</button>
+      <button disabled={isNewTodoLoading} onClick={handleAddTodoClick}>
+        {isNewTodoLoading ? "Задача добавляется" : "Добавить задачу"}
+      </button>
     </div>
   );
 }
